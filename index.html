@@ -15,38 +15,178 @@
 
     body {
       min-height: 100vh;
-      background: #080808;
+      background:
+        radial-gradient(circle at top left, rgba(255, 122, 24, 0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0, 210, 255, 0.16), transparent 35%),
+        linear-gradient(135deg, #050505, #111111 45%, #060606);
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
+      padding: 45px 24px;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 45px 45px;
+      pointer-events: none;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
     }
 
     .container {
       width: 100%;
-      max-width: 950px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 55px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ff7a18, #ff2d55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 20px;
+      box-shadow: 0 12px 35px rgba(255, 122, 24, 0.35);
+    }
+
+    .brand-text h3 {
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text p {
+      font-size: 13px;
+      color: #9f9f9f;
+      margin-top: 3px;
+    }
+
+    .status {
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #d7d7d7;
+      font-size: 13px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      margin-bottom: 52px;
+    }
+
+    .tag {
+      width: fit-content;
+      padding: 9px 15px;
+      border: 1px solid rgba(255, 122, 24, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 122, 24, 0.08);
+      color: #ff9b4a;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 56px;
-      margin-bottom: 12px;
+      font-size: 68px;
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, #ff7a18, #ff2d55, #36d1dc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .subtitle {
-      color: #aaa;
+      color: #b4b4b4;
       font-size: 18px;
-      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .summary {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .summary-card {
+      min-width: 145px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+    }
+
+    .summary-card h4 {
+      font-size: 26px;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .summary-card p {
+      color: #9f9f9f;
+      font-size: 13px;
     }
 
     .section {
-      margin-bottom: 38px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
     }
 
     .section h2 {
       font-size: 28px;
-      margin-bottom: 18px;
-      color: #ff7a18;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section h2::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ff7a18;
+      box-shadow: 0 0 18px rgba(255, 122, 24, 0.8);
+    }
+
+    .section-label {
+      color: #777;
+      font-size: 13px;
     }
 
     .cards {
@@ -56,41 +196,191 @@
     }
 
     .card {
-      width: 280px;
-      min-height: 120px;
-      background: #141414;
-      border: 1px solid #292929;
-      border-radius: 18px;
+      width: 340px;
+      min-height: 170px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
       padding: 22px;
       text-decoration: none;
       color: white;
-      transition: 0.25s;
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -65px;
+      top: -65px;
+      border-radius: 50%;
+      background: rgba(255, 122, 24, 0.12);
+      transition: 0.25s ease;
+    }
+
+    .card::after {
+      content: "↗";
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      transition: 0.25s ease;
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
+      border-color: rgba(255, 122, 24, 0.65);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .card:hover::before {
+      background: rgba(255, 122, 24, 0.22);
+      transform: scale(1.15);
+    }
+
+    .card:hover::after {
+      background: #ff7a18;
+      color: #111;
       border-color: #ff7a18;
-      box-shadow: 0 14px 35px rgba(255, 122, 24, 0.18);
+    }
+
+    .level {
+      width: fit-content;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .easy {
+      background: rgba(38, 255, 154, 0.12);
+      color: #4cffad;
+      border: 1px solid rgba(38, 255, 154, 0.22);
+    }
+
+    .medium {
+      background: rgba(255, 193, 7, 0.12);
+      color: #ffc94a;
+      border: 1px solid rgba(255, 193, 7, 0.25);
+    }
+
+    .hard {
+      background: rgba(255, 45, 85, 0.12);
+      color: #ff5f7f;
+      border: 1px solid rgba(255, 45, 85, 0.25);
+    }
+
+    .a1 {
+      background: rgba(54, 209, 220, 0.12);
+      color: #54e9f2;
+      border: 1px solid rgba(54, 209, 220, 0.25);
     }
 
     .card h3 {
-      font-size: 21px;
-      margin-bottom: 10px;
+      font-size: 25px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
     }
 
     .card p {
-      color: #aaa;
+      color: #b5b5b5;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
+      max-width: 250px;
+      position: relative;
+      z-index: 2;
     }
 
-    @media (max-width: 700px) {
+    .tech {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tech span {
+      font-size: 11px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: #9d9d9d;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    footer span {
+      color: #ff7a18;
+    }
+
+    @media (max-width: 900px) {
       h1 {
-        font-size: 38px;
+        font-size: 52px;
+      }
+
+      .card {
+        width: calc(50% - 9px);
+      }
+
+      .top-bar,
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      body {
+        padding: 28px 16px;
+      }
+
+      h1 {
+        font-size: 40px;
+        letter-spacing: -1.5px;
+      }
+
+      .subtitle {
+        font-size: 16px;
       }
 
       .card {
         width: 100%;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .status {
+        display: none;
       }
     }
   </style>
@@ -98,61 +388,164 @@
 <body>
 
   <main class="container">
-    <h1>Frontend Assignments</h1>
-    <p class="subtitle">CSS Flexbox + Position Projects</p>
+
+    <header class="top-bar">
+      <div class="brand">
+        <div class="logo">AM</div>
+
+        <div class="brand-text">
+          <h3>Aayush Mehta</h3>
+          <p>Frontend Assignment Portfolio</p>
+        </div>
+      </div>
+
+      <div class="status">CSS Flexbox + Position</div>
+    </header>
+
+    <section class="hero">
+      <div class="tag">Frontend Practice Repository</div>
+
+      <h1>
+        Creative UI Assignments <span>in One Place</span>
+      </h1>
+
+      <p class="subtitle">
+        A collection of frontend layouts built using HTML, CSS Flexbox, and CSS positioning.
+        Each assignment contains separate design recreations with structured folders and deployable pages.
+      </p>
+
+      <div class="summary">
+        <div class="summary-card">
+          <h4>3</h4>
+          <p>Assignments</p>
+        </div>
+
+        <div class="summary-card">
+          <h4>7+</h4>
+          <p>UI Screens</p>
+        </div>
+
+        <div class="summary-card">
+          <h4>HTML</h4>
+          <p>Static Pages</p>
+        </div>
+
+        <div class="summary-card">
+          <h4>CSS</h4>
+          <p>Flex + Position</p>
+        </div>
+      </div>
+    </section>
 
     <section class="section">
-      <h2>Assignment 1</h2>
+      <div class="section-heading">
+        <h2>Assignment 1</h2>
+        <p class="section-label">Position-based layout</p>
+      </div>
 
       <div class="cards">
         <a class="card" href="./Assignment_1/index.html">
-          <h3>A1 Design</h3>
-          <p>Position based product/UI design.</p>
+          <div class="level a1">A1 DESIGN</div>
+          <h3>Product UI Design</h3>
+          <p>Position-based product interface focused on layout structure and precise placement.</p>
+
+          <div class="tech">
+            <span>HTML</span>
+            <span>CSS Position</span>
+          </div>
         </a>
       </div>
     </section>
 
     <section class="section">
-      <h2>Assignment 2</h2>
+      <div class="section-heading">
+        <h2>Assignment 2</h2>
+        <p class="section-label">Three UI recreations</p>
+      </div>
 
       <div class="cards">
         <a class="card" href="./Assignment_2/Easy/index.html">
-          <h3>Easy</h3>
-          <p>Insights and Blogs design.</p>
+          <div class="level easy">EASY</div>
+          <h3>Insights & Blogs</h3>
+          <p>Dark themed blog card layout with category filters and responsive card alignment.</p>
+
+          <div class="tech">
+            <span>Flexbox</span>
+            <span>Cards</span>
+          </div>
         </a>
 
         <a class="card" href="./Assignment_2/Medium/index.html">
-          <h3>Medium</h3>
-          <p>Drinks menu design.</p>
+          <div class="level medium">MEDIUM</div>
+          <h3>Drinks Menu</h3>
+          <p>Restaurant-style drink menu interface with product cards and featured section.</p>
+
+          <div class="tech">
+            <span>Flexbox</span>
+            <span>Position</span>
+          </div>
         </a>
 
         <a class="card" href="./Assignment_2/Hard/index.html">
-          <h3>Hard</h3>
-          <p>Astro Winter Armor design.</p>
+          <div class="level hard">HARD</div>
+          <h3>Astro Winter Armor</h3>
+          <p>Complex fashion product page with side panels, product showcase, and feature strips.</p>
+
+          <div class="tech">
+            <span>Absolute</span>
+            <span>Product UI</span>
+          </div>
         </a>
       </div>
     </section>
 
     <section class="section">
-      <h2>Assignment 3</h2>
+      <div class="section-heading">
+        <h2>Assignment 3</h2>
+        <p class="section-label">Flexbox + position designs</p>
+      </div>
 
       <div class="cards">
         <a class="card" href="./Assignment_3/Easy/index.html">
-          <h3>Easy</h3>
-          <p>Squid Game landing page.</p>
+          <div class="level easy">EASY</div>
+          <h3>Squid Game Landing</h3>
+          <p>Cinematic landing page with hero content, floating visuals, buttons, and video cards.</p>
+
+          <div class="tech">
+            <span>Hero UI</span>
+            <span>Position</span>
+          </div>
         </a>
 
         <a class="card" href="./Assignment_3/Medium/index.html">
-          <h3>Medium</h3>
-          <p>Too Yum chips product page.</p>
+          <div class="level medium">MEDIUM</div>
+          <h3>Too Yum Chips</h3>
+          <p>Snack product landing page with cart controls, feature points, and product slider.</p>
+
+          <div class="tech">
+            <span>Flexbox</span>
+            <span>Product UI</span>
+          </div>
         </a>
 
         <a class="card" href="./Assignment_3/Hard/index.html">
-          <h3>Hard</h3>
-          <p>Digital Hunters agency page.</p>
+          <div class="level hard">HARD</div>
+          <h3>Digital Hunters</h3>
+          <p>Large agency-style layout with hero section, statistics, project cards, workflow, and footer.</p>
+
+          <div class="tech">
+            <span>Landing Page</span>
+            <span>Advanced Layout</span>
+          </div>
         </a>
       </div>
     </section>
+
+    <footer>
+      <p>Built by <span>Aayush Mehta</span></p>
+      <p>Deployed as a static frontend project</p>
+    </footer>
+
   </main>
 
 </body>
