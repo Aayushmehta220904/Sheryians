@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aayush Mehta Assignments</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #080808;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 950px;
+    }
+
+    h1 {
+      font-size: 56px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .section {
+      margin-bottom: 38px;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 18px;
+      color: #ff7a18;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .card {
+      width: 280px;
+      min-height: 120px;
+      background: #141414;
+      border: 1px solid #292929;
+      border-radius: 18px;
+      padding: 22px;
+      text-decoration: none;
+      color: white;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #ff7a18;
+      box-shadow: 0 14px 35px rgba(255, 122, 24, 0.18);
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <h1>Frontend Assignments</h1>
+    <p class="subtitle">CSS Flexbox + Position Projects</p>
+
+    <section class="section">
+      <h2>Assignment 1</h2>
+
+      <div class="cards">
+        <a class="card" href="./Assignment_1/index.html">
+          <h3>A1 Design</h3>
+          <p>Position based product/UI design.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Assignment 2</h2>
+
+      <div class="cards">
+        <a class="card" href="./Assignment_2/Easy/index.html">
+          <h3>Easy</h3>
+          <p>Insights and Blogs design.</p>
+        </a>
+
+        <a class="card" href="./Assignment_2/Medium/index.html">
+          <h3>Medium</h3>
+          <p>Drinks menu design.</p>
+        </a>
+
+        <a class="card" href="./Assignment_2/Hard/index.html">
+          <h3>Hard</h3>
+          <p>Astro Winter Armor design.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Assignment 3</h2>
+
+      <div class="cards">
+        <a class="card" href="./Assignment_3/Easy/index.html">
+          <h3>Easy</h3>
+          <p>Squid Game landing page.</p>
+        </a>
+
+        <a class="card" href="./Assignment_3/Medium/index.html">
+          <h3>Medium</h3>
+          <p>Too Yum chips product page.</p>
+        </a>
+
+        <a class="card" href="./Assignment_3/Hard/index.html">
+          <h3>Hard</h3>
+          <p>Digital Hunters agency page.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
