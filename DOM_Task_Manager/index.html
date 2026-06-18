@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Explorer Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body data-theme="dark">
+  <main class="app">
+
+    <header class="hero">
+      <nav class="nav">
+        <div class="brand">
+          <div class="brand-logo">JS</div>
+          <div>
+            <h2>DOM Explorer</h2>
+            <p>Pure JavaScript Task Manager</p>
+          </div>
+        </div>
+
+        <button id="themeToggle" class="theme-toggle" type="button">
+          🌙 Dark Mode
+        </button>
+      </nav>
+
+      <section class="hero-content">
+        <div class="hero-text">
+          <div class="badges">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Vanilla JS</span>
+            <span>No Framework</span>
+          </div>
+
+          <h1>Interactive Task Manager Using DOM APIs</h1>
+
+          <p>
+            A complete JavaScript project demonstrating DOM manipulation, event handling,
+            event delegation, event propagation, attributes vs properties, rendering pipeline,
+            local storage, search, filters, counters, and theme switching.
+          </p>
+        </div>
+
+        <div class="rubric-card">
+          <h3>Evaluation Focus</h3>
+
+          <div class="rubric-row">
+            <span>DOM Manipulation</span>
+            <strong>30%</strong>
+          </div>
+
+          <div class="rubric-row">
+            <span>Event Handling</span>
+            <strong>25%</strong>
+          </div>
+
+          <div class="rubric-row">
+            <span>Attributes vs Properties</span>
+            <strong>15%</strong>
+          </div>
+
+          <div class="rubric-row">
+            <span>Code Quality</span>
+            <strong>15%</strong>
+          </div>
+
+          <div class="rubric-row">
+            <span>UI / UX</span>
+            <strong>15%</strong>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <section class="stats">
+      <article class="stat-card">
+        <p>Total Tasks</p>
+        <h2 id="totalCount">0</h2>
+      </article>
+
+      <article class="stat-card">
+        <p>Completed</p>
+        <h2 id="completedCount">0</h2>
+      </article>
+
+      <article class="stat-card">
+        <p>Pending</p>
+        <h2 id="pendingCount">0</h2>
+      </article>
+    </section>
+
+    <section class="grid-2">
+      <section class="panel">
+        <div class="section-title">
+          <span>01</span>
+          <div>
+            <h2>Task Creation Module</h2>
+            <p>Create task cards dynamically without page refresh.</p>
+          </div>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <div class="field">
+            <label for="taskInput">Task Title</label>
+            <input id="taskInput" type="text" placeholder="Enter task title..." autocomplete="off" />
+          </div>
+
+          <div class="field">
+            <label for="categoryInput">Category</label>
+            <select id="categoryInput">
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="DOM">DOM</option>
+              <option value="Revision">Revision</option>
+            </select>
+          </div>
+
+          <button class="primary-btn" type="submit">Add Task</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <span>02</span>
+          <div>
+            <h2>Task Controls</h2>
+            <p>Search, filter, prepend demo, and clear tasks.</p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <input id="searchInput" type="text" placeholder="Search tasks..." />
+
+          <select id="filterCategory">
+            <option value="all">All Categories</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="DOM">DOM</option>
+            <option value="Revision">Revision</option>
+          </select>
+
+          <button id="prependDemoBtn" type="button">Prepend Demo</button>
+          <button id="clearAllBtn" class="danger-btn" type="button">Clear All</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <span>03</span>
+        <div>
+          <h2>Task Board</h2>
+          <p>
+            Each task uses <code>data-id</code>, <code>data-status</code>,
+            and <code>data-category</code>.
+          </p>
+        </div>
+      </div>
+
+      <div id="taskList" class="task-list"></div>
+
+      <p id="emptyMessage" class="empty-message">
+        No tasks available. Add your first task.
+      </p>
+    </section>
+
+    <section class="grid-2">
+      <section class="panel">
+        <div class="section-title">
+          <span>04</span>
+          <div>
+            <h2>Attributes vs Properties</h2>
+            <p>Change the input value and compare property vs attribute.</p>
+          </div>
+        </div>
+
+        <div class="attribute-box">
+          <input id="attributeDemoInput" type="text" value="Original Attribute Value" />
+          <button id="checkAttributeBtn" type="button">Check Difference</button>
+        </div>
+
+        <div id="attributeOutput" class="output-box">
+          Change the input value, then click the button.
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <span>05</span>
+          <div>
+            <h2>DOM Methods Used</h2>
+            <p>Required DOM APIs demonstrated in the project.</p>
+          </div>
+        </div>
+
+        <div class="method-grid">
+          <div>createElement()</div>
+          <div>createTextNode()</div>
+          <div>append()</div>
+          <div>appendChild()</div>
+          <div>prepend()</div>
+          <div>before()</div>
+          <div>after()</div>
+          <div>replaceWith()</div>
+          <div>remove()</div>
+          <div>DocumentFragment</div>
+        </div>
+      </section>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <span>06</span>
+        <div>
+          <h2>Event Propagation Demo</h2>
+          <p>Open console and click the child button to see capturing and bubbling.</p>
+        </div>
+      </div>
+
+      <div class="propagation-grid">
+        <div id="grandparent" class="prop-box grandparent">
+          <h3>Grandparent</h3>
+
+          <div id="parent" class="prop-box parent">
+            <h3>Parent</h3>
+
+            <button id="childBtn" class="child-btn" type="button">
+              Child Button
+            </button>
+          </div>
+        </div>
+
+        <div class="event-info">
+          <article>
+            <h3>Event Bubbling</h3>
+            <p>Child → Parent → Grandparent</p>
+          </article>
+
+          <article>
+            <h3>Event Capturing</h3>
+            <p>Grandparent → Parent → Child</p>
+          </article>
+
+          <article>
+            <h3>Event Delegation</h3>
+            <p>Task actions are handled by one parent event listener.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <span>07</span>
+        <div>
+          <h2>Browser Rendering Pipeline</h2>
+          <p>Visual explanation of how HTML and CSS become the Render Tree.</p>
+        </div>
+      </div>
+
+      <div class="pipeline">
+        <div class="pipeline-column">
+          <div class="pipe-card">HTML</div>
+          <b>↓</b>
+          <div class="pipe-card">Parsing</div>
+          <b>↓</b>
+          <div class="pipe-card">Tokenization</div>
+          <b>↓</b>
+          <div class="pipe-card">DOM Tree</div>
+        </div>
+
+        <div class="pipeline-column">
+          <div class="pipe-card">CSS</div>
+          <b>↓</b>
+          <div class="pipe-card">CSSOM Tree</div>
+        </div>
+
+        <div class="pipeline-column">
+          <div class="pipe-card wide">DOM Tree + CSSOM Tree</div>
+          <b>↓</b>
+          <div class="pipe-card final">Render Tree</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <span>08</span>
+        <div>
+          <h2>Presentation Checklist</h2>
+          <p>Use this section while explaining your project.</p>
+        </div>
+      </div>
+
+      <ul class="checklist">
+        <li>Add a task and show it appears instantly without refresh.</li>
+        <li>Inspect a task card and show data attributes.</li>
+        <li>Show edit, complete, duplicate, and delete actions.</li>
+        <li>Use search and category filter.</li>
+        <li>Toggle dark/light mode and inspect <code>data-theme</code>.</li>
+        <li>Open console and demonstrate bubbling/capturing.</li>
+        <li>Explain browser rendering pipeline.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

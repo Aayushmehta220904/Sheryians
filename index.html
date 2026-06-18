@@ -309,6 +309,12 @@
       border: 1px solid rgba(0, 210, 255, 0.28);
     }
 
+    .js-tag {
+      background: rgba(250, 204, 21, 0.12);
+      color: #facc15;
+      border: 1px solid rgba(250, 204, 21, 0.28);
+    }
+
     .card h3 {
       font-size: 25px;
       margin-bottom: 12px;
@@ -403,8 +409,8 @@
     }
   </style>
 </head>
-<body>
 
+<body>
   <main class="container">
 
     <header class="top-bar">
@@ -417,7 +423,7 @@
         </div>
       </div>
 
-      <div class="status">CSS Flexbox + Position + Grid + Responsive</div>
+      <div class="status">HTML + CSS + JavaScript + Responsive</div>
     </header>
 
     <section class="hero">
@@ -428,8 +434,9 @@
       </h1>
 
       <p class="subtitle">
-        A collection of frontend layouts built using HTML, CSS Flexbox, CSS positioning, CSS Grid,
-        and responsive design. Each project is organized in separate folders and ready for static deployment.
+        A collection of frontend layouts and JavaScript projects built using HTML, CSS Flexbox,
+        CSS positioning, CSS Grid, responsive design, and Vanilla JavaScript DOM APIs.
+        Each project is organized in separate folders and ready for static deployment.
       </p>
 
       <div class="summary">
@@ -444,7 +451,12 @@
         </div>
 
         <div class="summary-card">
-          <h4>12+</h4>
+          <h4>1</h4>
+          <p>JavaScript DOM Task</p>
+        </div>
+
+        <div class="summary-card">
+          <h4>13+</h4>
           <p>UI Screens</p>
         </div>
 
@@ -454,8 +466,8 @@
         </div>
 
         <div class="summary-card">
-          <h4>CSS</h4>
-          <p>Flex + Position + Grid</p>
+          <h4>JS</h4>
+          <p>DOM APIs</p>
         </div>
       </div>
     </section>
@@ -643,9 +655,32 @@
           <div class="tech">
             <span>HTML</span>
             <span>CSS</span>
-            <span>fonts</span>
+            <span>Fonts</span>
             <span>Responsive</span>
             <span>Media Query</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>JavaScript DOM Task</h2>
+        <p class="section-label">Pure JavaScript DOM project</p>
+      </div>
+
+      <div class="cards">
+        <a class="card" href="./DOM_Task_Manager/">
+          <div class="level js-tag">DOM PROJECT</div>
+          <h3>Interactive Task Manager</h3>
+          <p>Task manager project covering DOM manipulation, attributes, dataset, event delegation, event propagation, local storage, filters, counters, and theme switching.</p>
+
+          <div class="tech">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Vanilla JS</span>
+            <span>DOM APIs</span>
+            <span>Local Storage</span>
           </div>
         </a>
       </div>
@@ -657,6 +692,5 @@
     </footer>
 
   </main>
-
 </body>
 </html>
