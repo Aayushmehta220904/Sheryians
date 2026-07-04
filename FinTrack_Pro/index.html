@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FinTrack Pro - Personal Finance Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section id="loginPage" class="login-page">
+    <div class="login-card">
+      <div class="login-logo">₹</div>
+
+      <h1>FinTrack Pro</h1>
+      <p>Personal finance tracker powered by browser Local Storage.</p>
+
+      <form id="loginForm" class="login-form">
+        <label for="loginName">Enter Your Name</label>
+        <input
+          type="text"
+          id="loginName"
+          placeholder="Example: Aayush"
+          autocomplete="off"
+        />
+
+        <button type="submit">Enter Dashboard</button>
+      </form>
+    </div>
+  </section>
+
+  <main id="appPage" class="app hidden">
+    <nav class="navbar">
+      <div class="brand">
+        <div class="brand-icon">₹</div>
+
+        <div>
+          <h2>FinTrack Pro</h2>
+          <p id="welcomeText">Welcome back</p>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <button class="nav-link active" data-page="dashboardPage" type="button">
+          Dashboard
+        </button>
+
+        <button class="nav-link" data-page="settingsPage" type="button">
+          Settings
+        </button>
+      </div>
+
+      <div class="nav-actions">
+        <button id="openModalBtn" class="primary-btn" type="button">
+          + Add Transaction
+        </button>
+
+        <button id="logoutBtn" class="ghost-btn" type="button">
+          Logout
+        </button>
+      </div>
+    </nav>
+
+    <section id="dashboardPage" class="page-section active-section">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Browser-Based Finance Tracker</p>
+          <h1>Track income, expenses, and cash flow in one place.</h1>
+          <p>
+            Add transactions, monitor your balance, visualize cash flow,
+            filter history, and keep your preferences saved locally.
+          </p>
+        </div>
+
+        <div class="hero-mini-card">
+          <span>Current Currency</span>
+          <strong id="currencyPreview">₹ INR</strong>
+          <p>Saved using Local Storage</p>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <article class="summary-card balance-card">
+          <span>Current Balance</span>
+          <h2 id="balanceAmount">₹0</h2>
+          <p>Income minus expenses</p>
+        </article>
+
+        <article class="summary-card income-card">
+          <span>Total Income</span>
+          <h2 id="incomeAmount">₹0</h2>
+          <p>All income transactions</p>
+        </article>
+
+        <article class="summary-card expense-card">
+          <span>Total Expense</span>
+          <h2 id="expenseAmount">₹0</h2>
+          <p>All expense transactions</p>
+        </article>
+
+        <article class="summary-card">
+          <span>Total Transactions</span>
+          <h2 id="transactionCount">0</h2>
+          <p>Saved records</p>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel chart-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Cash Flow Visualization</h2>
+              <p>Income and expense comparison by transaction date.</p>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="cashFlowChart"></canvas>
+          </div>
+        </article>
+
+        <article class="panel quick-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Quick Actions</h2>
+              <p>Manage common operations.</p>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <button id="quickIncomeBtn" type="button">Add Income</button>
+            <button id="quickExpenseBtn" type="button">Add Expense</button>
+            <button id="exportCsvBtn" type="button">Export CSV</button>
+            <button id="resetFromDashboardBtn" class="danger-soft" type="button">
+              Reset Data
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading table-heading">
+          <div>
+            <h2>Transaction History</h2>
+            <p>Filter, review, and delete your income or expense records.</p>
+          </div>
+
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all" type="button">
+              All
+            </button>
+
+            <button class="filter-btn" data-filter="income" type="button">
+              Income
+            </button>
+
+            <button class="filter-btn" data-filter="expense" type="button">
+              Expense
+            </button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="transactionTableBody"></tbody>
+          </table>
+        </div>
+
+        <p id="emptyMessage" class="empty-message">
+          No transactions yet. Add your first income or expense record.
+        </p>
+      </section>
+    </section>
+
+    <section id="settingsPage" class="page-section">
+      <header class="settings-header">
+        <p class="eyebrow">Profile & Preferences</p>
+        <h1>Settings</h1>
+        <p>Update your display name, preferred currency, theme, and stored data.</p>
+      </header>
+
+      <section class="settings-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Profile Settings</h2>
+              <p>Saved locally in your browser.</p>
+            </div>
+          </div>
+
+          <form id="settingsForm" class="settings-form">
+            <div class="form-group">
+              <label for="profileName">Display Name</label>
+              <input id="profileName" type="text" placeholder="Your name" />
+            </div>
+
+            <div class="form-group">
+              <label for="currencySelect">Preferred Currency</label>
+              <select id="currencySelect">
+                <option value="INR">INR - Indian Rupee</option>
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+              </select>
+            </div>
+
+            <button class="primary-btn" type="submit">Save Preferences</button>
+          </form>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Appearance & Data</h2>
+              <p>Theme and storage controls.</p>
+            </div>
+          </div>
+
+          <div class="settings-actions">
+            <button id="themeToggle" type="button">Toggle Dark Mode</button>
+            <button id="resetAllBtn" class="danger-soft" type="button">
+              Reset All Saved Data
+            </button>
+          </div>
+
+          <div class="storage-note">
+            <h3>Local Storage</h3>
+            <p>
+              Transactions, name, currency, and theme are saved inside your
+              browser. Data is not synced to another browser or device.
+            </p>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <div id="transactionModal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h2>Add Transaction</h2>
+          <p>Enter income or expense details.</p>
+        </div>
+
+        <button id="closeModalBtn" class="close-btn" type="button">×</button>
+      </div>
+
+      <form id="transactionForm" class="transaction-form">
+        <div class="form-group">
+          <label for="transactionType">Transaction Type</label>
+          <select id="transactionType">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="transactionDescription">Description</label>
+          <input
+            id="transactionDescription"
+            type="text"
+            placeholder="Example: Salary, Food, Petrol"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="transactionAmount">Amount</label>
+          <input
+            id="transactionAmount"
+            type="number"
+            min="1"
+            step="0.01"
+            placeholder="Example: 500"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="transactionDate">Date</label>
+          <input id="transactionDate" type="date" />
+        </div>
+
+        <div class="form-group">
+          <label for="transactionCategory">Category</label>
+          <select id="transactionCategory">
+            <option value="Food & Dining">Food & Dining</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Recharge & Bills">Recharge & Bills</option>
+            <option value="Petrol & Auto">Petrol & Auto</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Salary">Salary</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <button class="primary-btn full-btn" type="submit">
+          Save Transaction
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
