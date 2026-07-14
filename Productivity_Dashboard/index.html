@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Single-page productivity dashboard using HTML, CSS and Vanilla JavaScript." />
+  <title>Productivity Dashboard</title>
+
+  <script>
+    try {
+      document.documentElement.dataset.theme =
+        localStorage.getItem("productivity-theme") || "dark";
+    } catch {
+      document.documentElement.dataset.theme = "dark";
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">PD</div>
+        <div>
+          <h2>Productivity Dashboard</h2>
+          <p>Plan. Focus. Complete.</p>
+        </div>
+      </div>
+
+      <div class="clock-box">
+        <span id="currentDate">Loading date...</span>
+        <strong id="currentTime">--:--:--</strong>
+      </div>
+
+      <button id="themeToggle" class="ghost-btn" type="button">
+        <span id="themeIcon">☀️</span>
+        <span id="themeText">Light Mode</span>
+      </button>
+    </header>
+
+    <section id="dashboardView" class="view active">
+      <section class="hero">
+        <div>
+          <p id="greeting" class="eyebrow">Good evening</p>
+          <h1>Everything needed for a <span>productive day.</span></h1>
+          <p>
+            Manage tasks, plan your schedule, run Pomodoro sessions, stay motivated,
+            check weather, and track daily goals from one dashboard.
+          </p>
+        </div>
+
+        <aside class="summary-panel">
+          <h3>Today at a glance</h3>
+          <div class="summary-grid">
+            <article><strong id="summaryTasks">0</strong><span>Pending Tasks</span></article>
+            <article><strong id="summaryPlanner">0</strong><span>Planner Entries</span></article>
+            <article><strong id="summaryGoals">0%</strong><span>Goals Completed</span></article>
+            <article><strong id="summarySessions">0</strong><span>Focus Sessions</span></article>
+          </div>
+        </aside>
+      </section>
+
+      <section class="dashboard-grid">
+        <button class="feature-card" data-feature="todoFeature" type="button">
+          <span class="feature-icon purple">✓</span><span class="arrow">↗</span>
+          <h2>Todo List</h2>
+          <p>Add, prioritize, complete, and delete tasks.</p>
+          <strong id="todoCardStat">0 pending</strong>
+        </button>
+
+        <button class="feature-card" data-feature="plannerFeature" type="button">
+          <span class="feature-icon blue">▦</span><span class="arrow">↗</span>
+          <h2>Daily Planner</h2>
+          <p>Assign tasks and notes to hourly time slots.</p>
+          <strong id="plannerCardStat">0 planned</strong>
+        </button>
+
+        <button class="feature-card" data-feature="quoteFeature" type="button">
+          <span class="feature-icon pink">“</span><span class="arrow">↗</span>
+          <h2>Motivation Quote</h2>
+          <p>Fetch a new quote with loading and fallback states.</p>
+          <strong>Stay inspired</strong>
+        </button>
+
+        <button class="feature-card" data-feature="pomodoroFeature" type="button">
+          <span class="feature-icon orange">◷</span><span class="arrow">↗</span>
+          <h2>Pomodoro Timer</h2>
+          <p>Start, pause, and reset focused work sessions.</p>
+          <strong id="timerCardStat">25:00</strong>
+        </button>
+
+        <button class="feature-card" data-feature="weatherFeature" type="button">
+          <span class="feature-icon cyan">☁</span><span class="arrow">↗</span>
+          <h2>Weather Widget</h2>
+          <p>Check live weather by city or current location.</p>
+          <strong id="weatherCardStat">Loading...</strong>
+        </button>
+
+        <button class="feature-card" data-feature="goalsFeature" type="button">
+          <span class="feature-icon green">◎</span><span class="arrow">↗</span>
+          <h2>Daily Goals</h2>
+          <p>Create goals and track completion progress.</p>
+          <strong id="goalsCardStat">0% complete</strong>
+        </button>
+      </section>
+
+      <section class="dashboard-widgets">
+        <article class="widget">
+          <div class="widget-heading">
+            <div><p class="eyebrow">Daily motivation</p><h2>Quote of the moment</h2></div>
+            <button id="dashboardQuoteBtn" class="small-btn" type="button">New Quote</button>
+          </div>
+          <blockquote id="dashboardQuote">Loading quote...</blockquote>
+          <cite id="dashboardQuoteAuthor">— Productivity Dashboard</cite>
+        </article>
+
+        <article class="widget">
+          <div class="widget-heading">
+            <div><p class="eyebrow">Live weather</p><h2 id="dashboardWeatherLocation">New Delhi</h2></div>
+            <span id="dashboardWeatherIcon" class="weather-icon">☁️</span>
+          </div>
+
+          <div class="weather-summary">
+            <strong id="dashboardWeatherTemp">--°C</strong>
+            <span id="dashboardWeatherCondition">Loading...</span>
+          </div>
+
+          <div class="weather-mini-grid">
+            <span>Humidity <strong id="dashboardHumidity">--%</strong></span>
+            <span>Wind <strong id="dashboardWind">-- km/h</strong></span>
+            <span>Feels <strong id="dashboardFeels">--°C</strong></span>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <section id="featureView" class="view">
+      <header class="feature-header">
+        <div>
+          <p class="eyebrow">Focused feature</p>
+          <h1 id="featureTitle">Feature</h1>
+          <p id="featureDescription">Feature description</p>
+        </div>
+        <button id="backButton" class="ghost-btn" type="button">← Back to Dashboard</button>
+      </header>
+
+      <section id="todoFeature" class="feature-panel">
+        <div class="two-column">
+          <article class="panel">
+            <p class="eyebrow">New task</p>
+            <h2>Add a task</h2>
+
+            <form id="todoForm" class="input-form">
+              <label for="todoInput">Task title</label>
+              <div class="input-row">
+                <input id="todoInput" type="text" maxlength="100" placeholder="Enter a task..." />
+                <button class="primary-btn" type="submit">Add Task</button>
+              </div>
+              <p id="todoError" class="error-text"></p>
+            </form>
+
+            <div class="progress-block">
+              <div><span>Progress</span><strong id="todoProgressText">0 of 0 completed</strong></div>
+              <div class="progress-track"><span id="todoProgressBar"></span></div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="section-heading">
+              <div><p class="eyebrow">Task list</p><h2>Your tasks</h2></div>
+              <button id="clearCompletedTodos" class="small-btn" type="button">Clear Completed</button>
+            </div>
+            <ul id="todoList" class="list"></ul>
+            <p id="todoEmpty" class="empty-state">No tasks yet.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="plannerFeature" class="feature-panel">
+        <article class="panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">Daily schedule</p><h2>Plan your day</h2></div>
+            <button id="clearPlanner" class="small-btn danger" type="button">Clear Planner</button>
+          </div>
+          <p class="muted">Planner entries save automatically while you type.</p>
+          <div id="plannerList" class="planner-list"></div>
+        </article>
+      </section>
+
+      <section id="quoteFeature" class="feature-panel">
+        <article class="panel quote-full">
+          <span class="big-quote">“</span>
+          <blockquote id="featureQuote">Loading quote...</blockquote>
+          <cite id="featureQuoteAuthor">— Productivity Dashboard</cite>
+          <button id="featureQuoteBtn" class="primary-btn" type="button">Get New Quote</button>
+          <p id="quoteStatus" class="muted"></p>
+        </article>
+      </section>
+
+      <section id="pomodoroFeature" class="feature-panel">
+        <div class="two-column">
+          <article class="panel timer-panel">
+            <p id="sessionLabel" class="eyebrow">Work Session</p>
+            <div id="timerDisplay" class="timer-display">25:00</div>
+
+            <div class="preset-row">
+              <button class="preset active" data-minutes="25" data-label="Work Session" type="button">25 min</button>
+              <button class="preset" data-minutes="5" data-label="Short Break" type="button">5 min</button>
+              <button class="preset" data-minutes="15" data-label="Long Break" type="button">15 min</button>
+            </div>
+
+            <div class="timer-actions">
+              <button id="startTimer" class="primary-btn" type="button">Start</button>
+              <button id="pauseTimer" class="ghost-btn" type="button">Pause</button>
+              <button id="resetTimer" class="ghost-btn" type="button">Reset</button>
+            </div>
+
+            <p id="timerStatus" class="muted">Choose a duration and start when ready.</p>
+          </article>
+
+          <article class="panel">
+            <p class="eyebrow">Focus history</p>
+            <h2>Today's sessions</h2>
+            <div class="focus-count">
+              <strong id="focusSessionCount">0</strong>
+              <span>completed work sessions</span>
+            </div>
+            <div class="tip-list">
+              <p>Choose one clear task before starting.</p>
+              <p>Remove distractions during the session.</p>
+              <p>Take a short break when the timer ends.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="weatherFeature" class="feature-panel">
+        <div class="two-column">
+          <article class="panel">
+            <p class="eyebrow">Weather search</p>
+            <h2>Choose a location</h2>
+
+            <form id="weatherForm" class="input-form">
+              <label for="cityInput">City</label>
+              <div class="input-row">
+                <input id="cityInput" type="text" placeholder="Example: Mumbai" value="New Delhi" />
+                <button class="primary-btn" type="submit">Search</button>
+              </div>
+              <p id="weatherError" class="error-text"></p>
+            </form>
+
+            <button id="currentLocationBtn" class="ghost-btn full-width" type="button">
+              Use Current Location
+            </button>
+          </article>
+
+          <article class="panel weather-full">
+            <span id="featureWeatherIcon" class="large-weather-icon">☁️</span>
+            <p id="featureWeatherLocation" class="eyebrow">New Delhi</p>
+            <h2 id="featureWeatherTemp">--°C</h2>
+            <p id="featureWeatherCondition">Loading weather...</p>
+
+            <div class="weather-data-grid">
+              <article><span>Humidity</span><strong id="featureHumidity">--%</strong></article>
+              <article><span>Wind</span><strong id="featureWind">-- km/h</strong></article>
+              <article><span>Feels Like</span><strong id="featureFeels">--°C</strong></article>
+              <article><span>Precipitation</span><strong id="featurePrecipitation">-- mm</strong></article>
+            </div>
+
+            <p id="weatherStatus" class="muted">Loading current conditions...</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="goalsFeature" class="feature-panel">
+        <div class="two-column">
+          <article class="panel">
+            <p class="eyebrow">New goal</p>
+            <h2>Add a daily goal</h2>
+
+            <form id="goalForm" class="input-form">
+              <label for="goalInput">Goal title</label>
+              <div class="input-row">
+                <input id="goalInput" type="text" maxlength="100" placeholder="Enter a daily goal..." />
+                <button class="primary-btn" type="submit">Add Goal</button>
+              </div>
+              <p id="goalError" class="error-text"></p>
+            </form>
+
+            <div class="goal-summary">
+              <div id="goalCircle" class="goal-circle"><strong id="goalPercent">0%</strong></div>
+              <div><span>Daily progress</span><strong id="goalProgressText">0 of 0 completed</strong></div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="section-heading">
+              <div><p class="eyebrow">Goal list</p><h2>Today's goals</h2></div>
+              <button id="clearCompletedGoals" class="small-btn" type="button">Clear Completed</button>
+            </div>
+            <ul id="goalList" class="list"></ul>
+            <p id="goalEmpty" class="empty-state">No goals yet.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      <p>HTML · CSS · Vanilla JavaScript · Local Storage · Fetch API · Date Object · setInterval</p>
+      <p>Productivity Dashboard</p>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Aayush Mehta Assignments</title>
 
   <style>
@@ -16,9 +17,18 @@
     body {
       min-height: 100vh;
       background:
-        radial-gradient(circle at top left, rgba(255, 122, 24, 0.25), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(0, 210, 255, 0.16), transparent 35%),
+        radial-gradient(
+          circle at top left,
+          rgba(255, 122, 24, 0.25),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(0, 210, 255, 0.16),
+          transparent 35%
+        ),
         linear-gradient(135deg, #050505, #111111 45%, #060606);
+
       color: white;
       padding: 45px 24px;
       overflow-x: hidden;
@@ -28,12 +38,33 @@
       content: "";
       position: fixed;
       inset: 0;
+
       background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        linear-gradient(
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        );
+
       background-size: 45px 45px;
+
       pointer-events: none;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
+
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
     }
 
     .container {
@@ -44,10 +75,13 @@
       z-index: 2;
     }
 
+    /* TOP BAR */
+
     .top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
       margin-bottom: 55px;
     }
 
@@ -60,14 +94,25 @@
     .logo {
       width: 48px;
       height: 48px;
+
       border-radius: 16px;
-      background: linear-gradient(135deg, #ff7a18, #ff2d55);
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff7a18,
+          #ff2d55
+        );
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-weight: 900;
       font-size: 20px;
-      box-shadow: 0 12px 35px rgba(255, 122, 24, 0.35);
+
+      box-shadow:
+        0 12px 35px rgba(255, 122, 24, 0.35);
     }
 
     .brand-text h3 {
@@ -76,20 +121,29 @@
     }
 
     .brand-text p {
-      font-size: 13px;
-      color: #9f9f9f;
       margin-top: 3px;
+      color: #9f9f9f;
+      font-size: 13px;
     }
 
     .status {
       padding: 10px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.12);
+
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
+
+      background:
+        rgba(255, 255, 255, 0.05);
+
       color: #d7d7d7;
       font-size: 13px;
+
       backdrop-filter: blur(12px);
     }
+
+    /* HERO */
 
     .hero {
       margin-bottom: 52px;
@@ -97,40 +151,64 @@
 
     .tag {
       width: fit-content;
+
       padding: 9px 15px;
-      border: 1px solid rgba(255, 122, 24, 0.35);
+
+      border:
+        1px solid rgba(255, 122, 24, 0.35);
+
       border-radius: 999px;
-      background: rgba(255, 122, 24, 0.08);
+
+      background:
+        rgba(255, 122, 24, 0.08);
+
       color: #ff9b4a;
+
       font-size: 13px;
       font-weight: 700;
+
       margin-bottom: 20px;
     }
 
     h1 {
+      max-width: 760px;
+
+      margin-bottom: 18px;
+
       font-size: 68px;
       line-height: 0.95;
       letter-spacing: -3px;
-      margin-bottom: 18px;
-      max-width: 760px;
     }
 
     h1 span {
-      background: linear-gradient(90deg, #ff7a18, #ff2d55, #36d1dc);
+      background:
+        linear-gradient(
+          90deg,
+          #ff7a18,
+          #ff2d55,
+          #36d1dc
+        );
+
       -webkit-background-clip: text;
       background-clip: text;
+
       color: transparent;
     }
 
     .subtitle {
+      max-width: 680px;
+
       color: #b4b4b4;
+
       font-size: 18px;
       line-height: 1.6;
-      max-width: 680px;
     }
+
+    /* SUMMARY */
 
     .summary {
       margin-top: 30px;
+
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
@@ -138,23 +216,34 @@
 
     .summary-card {
       min-width: 145px;
+
       padding: 16px 18px;
+
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.055);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      background:
+        rgba(255, 255, 255, 0.055);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
+
       backdrop-filter: blur(16px);
     }
 
     .summary-card h4 {
-      font-size: 26px;
-      color: #ffffff;
       margin-bottom: 4px;
+
+      color: #ffffff;
+
+      font-size: 26px;
     }
 
     .summary-card p {
       color: #9f9f9f;
       font-size: 13px;
     }
+
+    /* SECTIONS */
 
     .section {
       margin-bottom: 42px;
@@ -164,30 +253,44 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
+
       margin-bottom: 18px;
     }
 
     .section h2 {
-      font-size: 28px;
-      color: #fff;
       display: flex;
       align-items: center;
       gap: 12px;
+
+      color: #ffffff;
+
+      font-size: 28px;
     }
 
     .section h2::before {
       content: "";
+
       width: 12px;
       height: 12px;
+
+      flex-shrink: 0;
+
       border-radius: 50%;
+
       background: #ff7a18;
-      box-shadow: 0 0 18px rgba(255, 122, 24, 0.8);
+
+      box-shadow:
+        0 0 18px rgba(255, 122, 24, 0.8);
     }
 
     .section-label {
-      color: #777;
+      color: #777777;
       font-size: 13px;
+      text-align: right;
     }
+
+    /* CARDS */
 
     .cards {
       display: flex;
@@ -198,176 +301,292 @@
     .card {
       width: 340px;
       min-height: 170px;
-      background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035));
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
+
       padding: 22px;
-      text-decoration: none;
-      color: white;
-      transition: 0.25s ease;
+
       position: relative;
       overflow: hidden;
+
+      text-decoration: none;
+      color: white;
+
+      border-radius: 24px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.09),
+          rgba(255, 255, 255, 0.035)
+        );
+
       backdrop-filter: blur(14px);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .card::before {
       content: "";
-      position: absolute;
+
       width: 150px;
       height: 150px;
+
+      position: absolute;
       right: -65px;
       top: -65px;
+
       border-radius: 50%;
-      background: rgba(255, 122, 24, 0.12);
-      transition: 0.25s ease;
+
+      background:
+        rgba(255, 122, 24, 0.12);
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease;
     }
 
     .card::after {
       content: "↗";
+
+      width: 36px;
+      height: 36px;
+
       position: absolute;
       right: 22px;
       top: 18px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.13);
+
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #aaa;
-      transition: 0.25s ease;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+      color: #aaaaaa;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
     }
 
     .card:hover {
       transform: translateY(-8px);
-      border-color: rgba(255, 122, 24, 0.65);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+
+      border-color:
+        rgba(255, 122, 24, 0.65);
+
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.45);
     }
 
     .card:hover::before {
-      background: rgba(255, 122, 24, 0.22);
+      background:
+        rgba(255, 122, 24, 0.22);
+
       transform: scale(1.15);
     }
 
     .card:hover::after {
       background: #ff7a18;
-      color: #111;
+      color: #111111;
       border-color: #ff7a18;
     }
 
-    .level {
-      width: fit-content;
-      padding: 6px 11px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 26px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .easy {
-      background: rgba(38, 255, 154, 0.12);
-      color: #4cffad;
-      border: 1px solid rgba(38, 255, 154, 0.22);
-    }
-
-    .medium {
-      background: rgba(255, 193, 7, 0.12);
-      color: #ffc94a;
-      border: 1px solid rgba(255, 193, 7, 0.25);
-    }
-
-    .hard {
-      background: rgba(255, 45, 85, 0.12);
-      color: #ff5f7f;
-      border: 1px solid rgba(255, 45, 85, 0.25);
-    }
-
-    .a1 {
-      background: rgba(54, 209, 220, 0.12);
-      color: #54e9f2;
-      border: 1px solid rgba(54, 209, 220, 0.25);
-    }
-
-    .grid-tag {
-      background: rgba(159, 92, 255, 0.12);
-      color: #c79bff;
-      border: 1px solid rgba(159, 92, 255, 0.28);
-    }
-
-    .final-tag {
-      background: rgba(255, 122, 24, 0.13);
-      color: #ff9b4a;
-      border: 1px solid rgba(255, 122, 24, 0.32);
-    }
-
-    .responsive-tag {
-      background: rgba(0, 210, 255, 0.12);
-      color: #5de9ff;
-      border: 1px solid rgba(0, 210, 255, 0.28);
-    }
-
-    .js-tag {
-      background: rgba(250, 204, 21, 0.12);
-      color: #facc15;
-      border: 1px solid rgba(250, 204, 21, 0.28);
-    }
-
-    .finance-tag {
-      background: rgba(34, 197, 94, 0.12);
-      color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.28);
-    }
-
     .card h3 {
-      font-size: 25px;
       margin-bottom: 12px;
+
       position: relative;
       z-index: 2;
+
+      font-size: 25px;
     }
 
     .card p {
-      color: #b5b5b5;
-      font-size: 14px;
-      line-height: 1.55;
-      max-width: 250px;
+      max-width: 260px;
+
       position: relative;
       z-index: 2;
+
+      color: #b5b5b5;
+
+      font-size: 14px;
+      line-height: 1.55;
     }
+
+    /* LEVEL TAGS */
+
+    .level {
+      width: fit-content;
+
+      margin-bottom: 26px;
+
+      padding: 6px 11px;
+
+      position: relative;
+      z-index: 2;
+
+      border-radius: 999px;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .easy {
+      background:
+        rgba(38, 255, 154, 0.12);
+
+      color: #4cffad;
+
+      border:
+        1px solid rgba(38, 255, 154, 0.22);
+    }
+
+    .medium {
+      background:
+        rgba(255, 193, 7, 0.12);
+
+      color: #ffc94a;
+
+      border:
+        1px solid rgba(255, 193, 7, 0.25);
+    }
+
+    .hard {
+      background:
+        rgba(255, 45, 85, 0.12);
+
+      color: #ff5f7f;
+
+      border:
+        1px solid rgba(255, 45, 85, 0.25);
+    }
+
+    .a1 {
+      background:
+        rgba(54, 209, 220, 0.12);
+
+      color: #54e9f2;
+
+      border:
+        1px solid rgba(54, 209, 220, 0.25);
+    }
+
+    .grid-tag {
+      background:
+        rgba(159, 92, 255, 0.12);
+
+      color: #c79bff;
+
+      border:
+        1px solid rgba(159, 92, 255, 0.28);
+    }
+
+    .final-tag {
+      background:
+        rgba(255, 122, 24, 0.13);
+
+      color: #ff9b4a;
+
+      border:
+        1px solid rgba(255, 122, 24, 0.32);
+    }
+
+    .responsive-tag {
+      background:
+        rgba(0, 210, 255, 0.12);
+
+      color: #5de9ff;
+
+      border:
+        1px solid rgba(0, 210, 255, 0.28);
+    }
+
+    .js-tag {
+      background:
+        rgba(250, 204, 21, 0.12);
+
+      color: #facc15;
+
+      border:
+        1px solid rgba(250, 204, 21, 0.28);
+    }
+
+    .finance-tag {
+      background:
+        rgba(34, 197, 94, 0.12);
+
+      color: #4ade80;
+
+      border:
+        1px solid rgba(34, 197, 94, 0.28);
+    }
+
+    .productivity-tag {
+      background:
+        rgba(99, 102, 241, 0.14);
+
+      color: #a5b4fc;
+
+      border:
+        1px solid rgba(99, 102, 241, 0.32);
+    }
+
+    /* TECHNOLOGY TAGS */
 
     .tech {
       margin-top: 22px;
+
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+
       position: relative;
       z-index: 2;
     }
 
     .tech span {
-      font-size: 11px;
       padding: 6px 9px;
+
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.07);
+
+      background:
+        rgba(255, 255, 255, 0.07);
+
       color: #9d9d9d;
+
+      font-size: 11px;
     }
+
+    /* FOOTER */
 
     footer {
       margin-top: 60px;
       padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+
       display: flex;
       justify-content: space-between;
       gap: 20px;
-      color: #777;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+      color: #777777;
       font-size: 13px;
     }
 
     footer span {
       color: #ff7a18;
     }
+
+    /* TABLET */
 
     @media (max-width: 900px) {
       h1 {
@@ -383,7 +602,13 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .section-label {
+        text-align: left;
+      }
     }
+
+    /* MOBILE */
 
     @media (max-width: 620px) {
       body {
@@ -412,6 +637,10 @@
       .status {
         display: none;
       }
+
+      .summary-card {
+        flex: 1 1 140px;
+      }
     }
   </style>
 </head>
@@ -429,20 +658,26 @@
         </div>
       </div>
 
-      <div class="status">HTML + CSS + JavaScript + Responsive</div>
+      <div class="status">
+        HTML + CSS + JavaScript + Responsive
+      </div>
     </header>
 
     <section class="hero">
-      <div class="tag">Frontend Practice Repository</div>
+      <div class="tag">
+        Frontend Practice Repository
+      </div>
 
       <h1>
-        Creative UI Assignments <span>in One Place</span>
+        Creative UI Assignments
+        <span>in One Place</span>
       </h1>
 
       <p class="subtitle">
-        A collection of frontend layouts and JavaScript projects built using HTML, CSS Flexbox,
-        CSS positioning, CSS Grid, responsive design, and Vanilla JavaScript DOM APIs.
-        Each project is organized in separate folders and ready for static deployment.
+        A collection of frontend layouts and JavaScript projects built
+        using HTML, CSS Flexbox, CSS positioning, CSS Grid, responsive
+        design, browser APIs, and Vanilla JavaScript. Every project is
+        organized in a separate folder and ready for static deployment.
       </p>
 
       <div class="summary">
@@ -457,12 +692,12 @@
         </div>
 
         <div class="summary-card">
-          <h4>2</h4>
+          <h4>3</h4>
           <p>JavaScript Projects</p>
         </div>
 
         <div class="summary-card">
-          <h4>14+</h4>
+          <h4>15+</h4>
           <p>UI Screens</p>
         </div>
 
@@ -473,22 +708,80 @@
 
         <div class="summary-card">
           <h4>JS</h4>
-          <p>DOM + Local Storage</p>
+          <p>DOM + APIs + Storage</p>
         </div>
       </div>
     </section>
 
+    <!-- PRODUCTIVITY DASHBOARD -->
+
     <section class="section">
       <div class="section-heading">
-        <h2>FinTrack Pro</h2>
-        <p class="section-label">Latest task · Personal finance tracker</p>
+        <h2>Productivity Dashboard</h2>
+
+        <p class="section-label">
+          Latest task · Multi-tool productivity application
+        </p>
       </div>
 
       <div class="cards">
-        <a class="card" href="./FinTrack_Pro/">
-          <div class="level finance-tag">FINANCE APP</div>
+        <a
+          class="card"
+          href="./Productivity_Dashboard/"
+        >
+          <div class="level productivity-tag">
+            PRODUCTIVITY APP
+          </div>
+
+          <h3>Productivity Dashboard</h3>
+
+          <p>
+            Single-page productivity dashboard with Todo List,
+            Daily Planner, Motivation Quotes, Pomodoro Timer,
+            Weather Widget, live Date and Time, Dynamic Background,
+            Theme Switch, and Daily Goals.
+          </p>
+
+          <div class="tech">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Fetch API</span>
+            <span>Local Storage</span>
+            <span>setInterval</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FINTRACK PRO -->
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>FinTrack Pro</h2>
+
+        <p class="section-label">
+          Personal finance tracker
+        </p>
+      </div>
+
+      <div class="cards">
+        <a
+          class="card"
+          href="./FinTrack_Pro/"
+        >
+          <div class="level finance-tag">
+            FINANCE APP
+          </div>
+
           <h3>Personal Finance Tracker</h3>
-          <p>Browser based finance tracker with transactions, balance summary, cash flow chart, filters, currency switcher, profile settings, dark mode, CSV export, and Local Storage.</p>
+
+          <p>
+            Browser-based finance tracker with transactions,
+            balance summary, cash-flow chart, filters, currency
+            switcher, profile settings, dark mode, CSV export,
+            and Local Storage.
+          </p>
 
           <div class="tech">
             <span>HTML</span>
@@ -501,17 +794,34 @@
       </div>
     </section>
 
+    <!-- JAVASCRIPT DOM TASK -->
+
     <section class="section">
       <div class="section-heading">
         <h2>JavaScript DOM Task</h2>
-        <p class="section-label">Pure JavaScript DOM project</p>
+
+        <p class="section-label">
+          Pure JavaScript DOM project
+        </p>
       </div>
 
       <div class="cards">
-        <a class="card" href="./DOM_Task_Manager/">
-          <div class="level js-tag">DOM PROJECT</div>
+        <a
+          class="card"
+          href="./DOM_Task_Manager/"
+        >
+          <div class="level js-tag">
+            DOM PROJECT
+          </div>
+
           <h3>Interactive Task Manager</h3>
-          <p>Task manager project covering DOM manipulation, attributes, dataset, event delegation, event propagation, local storage, filters, counters, and theme switching.</p>
+
+          <p>
+            Task manager covering DOM manipulation, attributes,
+            dataset, event delegation, event propagation,
+            Local Storage, search, filters, counters,
+            and theme switching.
+          </p>
 
           <div class="tech">
             <span>HTML</span>
@@ -524,40 +834,72 @@
       </div>
     </section>
 
+    <!-- RESPONSIVE TASK -->
+
     <section class="section">
       <div class="section-heading">
         <h2>Responsive Task</h2>
-        <p class="section-label">Separate responsive layout practice</p>
+
+        <p class="section-label">
+          Separate responsive layout practice
+        </p>
       </div>
 
       <div class="cards">
-        <a class="card" href="./Responsive_Task/">
-          <div class="level responsive-tag">RESPONSIVE</div>
+        <a
+          class="card"
+          href="./Responsive_Task/"
+        >
+          <div class="level responsive-tag">
+            RESPONSIVE
+          </div>
+
           <h3>Two Leaves Tea Page</h3>
-          <p>Separate responsive landing page task with mobile-first layout, sticky navbar, product cards, and media query adjustments.</p>
+
+          <p>
+            Responsive landing-page task with mobile-first layout,
+            sticky navigation, product cards, local fonts,
+            and media-query adjustments.
+          </p>
 
           <div class="tech">
             <span>HTML</span>
             <span>CSS</span>
             <span>Fonts</span>
             <span>Responsive</span>
-            <span>Media Query</span>
+            <span>Media Queries</span>
           </div>
         </a>
       </div>
     </section>
 
+    <!-- ASSIGNMENT 5 -->
+
     <section class="section">
       <div class="section-heading">
         <h2>Assignment 5</h2>
-        <p class="section-label">Full landing page clone</p>
+
+        <p class="section-label">
+          Full landing-page clone
+        </p>
       </div>
 
       <div class="cards">
-        <a class="card" href="./Assignment_5/">
-          <div class="level final-tag">FINAL DESIGN</div>
+        <a
+          class="card"
+          href="./Assignment_5/"
+        >
+          <div class="level final-tag">
+            FINAL DESIGN
+          </div>
+
           <h3>Øliv Branding Agency</h3>
-          <p>Complete branding agency landing page with hero, services, work, values, team, blog, and footer sections.</p>
+
+          <p>
+            Complete branding-agency landing page with hero,
+            services, work, values, team, blog,
+            and footer sections.
+          </p>
 
           <div class="tech">
             <span>HTML</span>
@@ -569,17 +911,33 @@
       </div>
     </section>
 
+    <!-- ASSIGNMENT 4 -->
+
     <section class="section">
       <div class="section-heading">
         <h2>Assignment 4</h2>
-        <p class="section-label">CSS Grid Layout</p>
+
+        <p class="section-label">
+          CSS Grid layouts
+        </p>
       </div>
 
       <div class="cards">
-        <a class="card" href="./Assignment_4/Easy/">
-          <div class="level easy">EASY</div>
+        <a
+          class="card"
+          href="./Assignment_4/Easy/"
+        >
+          <div class="level easy">
+            EASY
+          </div>
+
           <h3>Butusic Exhibition</h3>
-          <p>Grid based exhibition dashboard layout with cards, menu blocks, and rating section.</p>
+
+          <p>
+            Grid-based exhibition dashboard with cards,
+            menu blocks, content areas,
+            and a rating section.
+          </p>
 
           <div class="tech">
             <span>CSS Grid</span>
@@ -587,10 +945,21 @@
           </div>
         </a>
 
-        <a class="card" href="./Assignment_4/Medium/">
-          <div class="level medium">MEDIUM</div>
+        <a
+          class="card"
+          href="./Assignment_4/Medium/"
+        >
+          <div class="level medium">
+            MEDIUM
+          </div>
+
           <h3>Deep Style Fashion</h3>
-          <p>Fashion landing page created with CSS Grid, image blocks, and editorial layout.</p>
+
+          <p>
+            Fashion landing page built with CSS Grid,
+            image blocks, editorial typography,
+            and asymmetric layout.
+          </p>
 
           <div class="tech">
             <span>Grid Layout</span>
@@ -598,10 +967,21 @@
           </div>
         </a>
 
-        <a class="card" href="./Assignment_4/Hard/">
-          <div class="level hard">HARD</div>
+        <a
+          class="card"
+          href="./Assignment_4/Hard/"
+        >
+          <div class="level hard">
+            HARD
+          </div>
+
           <h3>Cubo Dashboard</h3>
-          <p>Advanced dashboard style interface using grid rows, columns, cards, and absolute elements.</p>
+
+          <p>
+            Advanced dashboard interface using grid rows,
+            columns, cards, panels,
+            and positioned elements.
+          </p>
 
           <div class="tech">
             <span>CSS Grid</span>
@@ -611,17 +991,33 @@
       </div>
     </section>
 
+    <!-- ASSIGNMENT 3 -->
+
     <section class="section">
       <div class="section-heading">
         <h2>Assignment 3</h2>
-        <p class="section-label">Flexbox + position designs</p>
+
+        <p class="section-label">
+          Flexbox and position designs
+        </p>
       </div>
 
       <div class="cards">
-        <a class="card" href="./Assignment_3/Easy/">
-          <div class="level easy">EASY</div>
+        <a
+          class="card"
+          href="./Assignment_3/Easy/"
+        >
+          <div class="level easy">
+            EASY
+          </div>
+
           <h3>Squid Game Landing</h3>
-          <p>Cinematic landing page with hero content, floating visuals, buttons, and video cards.</p>
+
+          <p>
+            Cinematic landing page with hero content,
+            floating visuals, call-to-action buttons,
+            and video cards.
+          </p>
 
           <div class="tech">
             <span>Hero UI</span>
@@ -629,10 +1025,21 @@
           </div>
         </a>
 
-        <a class="card" href="./Assignment_3/Medium/">
-          <div class="level medium">MEDIUM</div>
+        <a
+          class="card"
+          href="./Assignment_3/Medium/"
+        >
+          <div class="level medium">
+            MEDIUM
+          </div>
+
           <h3>Too Yum Chips</h3>
-          <p>Snack product landing page with cart controls, feature points, and product slider.</p>
+
+          <p>
+            Snack-product landing page with product controls,
+            feature points, promotional content,
+            and product slider.
+          </p>
 
           <div class="tech">
             <span>Flexbox</span>
@@ -640,10 +1047,21 @@
           </div>
         </a>
 
-        <a class="card" href="./Assignment_3/Hard/">
-          <div class="level hard">HARD</div>
+        <a
+          class="card"
+          href="./Assignment_3/Hard/"
+        >
+          <div class="level hard">
+            HARD
+          </div>
+
           <h3>Digital Hunters</h3>
-          <p>Large agency style layout with hero section, statistics, project cards, workflow, and footer.</p>
+
+          <p>
+            Agency-style layout with hero section,
+            statistics, project cards,
+            workflow, and footer.
+          </p>
 
           <div class="tech">
             <span>Landing Page</span>
@@ -653,17 +1071,33 @@
       </div>
     </section>
 
+    <!-- ASSIGNMENT 2 -->
+
     <section class="section">
       <div class="section-heading">
         <h2>Assignment 2</h2>
-        <p class="section-label">Three UI recreations</p>
+
+        <p class="section-label">
+          Three UI recreations
+        </p>
       </div>
 
       <div class="cards">
-        <a class="card" href="./Assignment_2/Easy/">
-          <div class="level easy">EASY</div>
+        <a
+          class="card"
+          href="./Assignment_2/Easy/"
+        >
+          <div class="level easy">
+            EASY
+          </div>
+
           <h3>Insights & Blogs</h3>
-          <p>Dark themed blog card layout with category filters and responsive card alignment.</p>
+
+          <p>
+            Dark-themed blog-card layout with categories,
+            content cards,
+            and responsive alignment.
+          </p>
 
           <div class="tech">
             <span>Flexbox</span>
@@ -671,10 +1105,21 @@
           </div>
         </a>
 
-        <a class="card" href="./Assignment_2/Medium/">
-          <div class="level medium">MEDIUM</div>
+        <a
+          class="card"
+          href="./Assignment_2/Medium/"
+        >
+          <div class="level medium">
+            MEDIUM
+          </div>
+
           <h3>Drinks Menu</h3>
-          <p>Restaurant style drink menu interface with product cards and featured section.</p>
+
+          <p>
+            Restaurant-style drinks interface with
+            product cards, menu content,
+            and featured sections.
+          </p>
 
           <div class="tech">
             <span>Flexbox</span>
@@ -682,10 +1127,21 @@
           </div>
         </a>
 
-        <a class="card" href="./Assignment_2/Hard/">
-          <div class="level hard">HARD</div>
+        <a
+          class="card"
+          href="./Assignment_2/Hard/"
+        >
+          <div class="level hard">
+            HARD
+          </div>
+
           <h3>Astro Winter Armor</h3>
-          <p>Complex fashion product page with side panels, product showcase, and feature strips.</p>
+
+          <p>
+            Fashion-product page with side panels,
+            product showcase,
+            and feature strips.
+          </p>
 
           <div class="tech">
             <span>Absolute</span>
@@ -695,17 +1151,34 @@
       </div>
     </section>
 
+    <!-- ASSIGNMENT 1 -->
+
     <section class="section">
       <div class="section-heading">
         <h2>Assignment 1</h2>
-        <p class="section-label">Position-based layout</p>
+
+        <p class="section-label">
+          Position-based layout
+        </p>
       </div>
 
       <div class="cards">
-        <a class="card" href="./Assignment_1/">
-          <div class="level a1">A1 DESIGN</div>
+        <a
+          class="card"
+          href="./Assignment_1/"
+        >
+          <div class="level a1">
+            A1 DESIGN
+          </div>
+
           <h3>Product UI Design</h3>
-          <p>Position based product interface focused on layout structure and precise placement.</p>
+
+          <p>
+            Position-based product interface focused on
+            page structure,
+            visual hierarchy,
+            and precise placement.
+          </p>
 
           <div class="tech">
             <span>HTML</span>
@@ -716,8 +1189,14 @@
     </section>
 
     <footer>
-      <p>Built by <span>Aayush Mehta</span></p>
-      <p>Deployed as a static frontend project</p>
+      <p>
+        Built by
+        <span>Aayush Mehta</span>
+      </p>
+
+      <p>
+        Deployed as a static frontend project
+      </p>
     </footer>
 
   </main>
