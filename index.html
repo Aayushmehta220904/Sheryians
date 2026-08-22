@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Frontend assignments and JavaScript projects created by Aayush Mehta."
+    content="Frontend assignments, JavaScript projects, React applications, and the Componentra UI toolkit created by Aayush Mehta."
   />
 
   <title>Aayush Mehta Assignments</title>
@@ -563,6 +563,44 @@
         1px solid rgba(56, 189, 248, 0.3);
     }
 
+
+    /* COMPONENTRA TOOLKIT CARD */
+
+    .toolkit-tag {
+      background:
+        rgba(168, 85, 247, 0.14);
+
+      color: #d8b4fe;
+
+      border:
+        1px solid rgba(168, 85, 247, 0.32);
+    }
+
+    .componentra-card::before {
+      background:
+        rgba(168, 85, 247, 0.15);
+    }
+
+    .componentra-card:hover {
+      border-color:
+        rgba(168, 85, 247, 0.68);
+
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.45),
+        0 0 32px rgba(168, 85, 247, 0.1);
+    }
+
+    .componentra-card:hover::before {
+      background:
+        rgba(168, 85, 247, 0.26);
+    }
+
+    .componentra-card:hover::after {
+      background: #c084fc;
+      border-color: #c084fc;
+      color: #0b0610;
+    }
+
     /* SKYMART CARD */
 
     .skymart-card::before {
@@ -750,7 +788,7 @@
 
       <div class="summary">
         <div class="summary-card">
-          <h4>5</h4>
+          <h4>6</h4>
           <p>Assignments</p>
         </div>
 
@@ -781,6 +819,50 @@
       </div>
     </section>
 
+
+    <!-- TOOLKIT / COMPONENTRA -->
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>ToolTip Task</h2>
+
+        <p class="section-label">
+          React component toolkit
+        </p>
+      </div>
+
+      <div class="cards">
+        <a
+          class="card componentra-card"
+          href="./Componentra/dist/"
+          aria-label="Open Toolkit - Componentra React component library"
+        >
+          <div class="level toolkit-tag">
+            COMPONENTRA · UI TOOLKIT
+          </div>
+
+          <h3>Componentra</h3>
+
+          <p>
+            Improved React and TypeScript component toolkit built on the
+            provided assignment codebase. Includes reusable UI components,
+            component documentation, responsive navigation, light and dark
+            themes, searchable component discovery, templates, and polished
+            interactive previews.
+          </p>
+
+          <div class="tech">
+            <span>React</span>
+            <span>TypeScript</span>
+            <span>Vite</span>
+            <span>Tailwind CSS</span>
+            <span>GSAP</span>
+            <span>Component Library</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- SKYMART -->
 
     <section class="section">
@@ -788,7 +870,7 @@
         <h2>SkyMart</h2>
 
         <p class="section-label">
-          Latest assignment · React e-commerce application
+          React e-commerce application
         </p>
       </div>
 
