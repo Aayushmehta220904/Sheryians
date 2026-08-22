@@ -1,0 +1,54 @@
+{
+  "name": "componentra-ui",
+  "version": "1.0.6",
+  "description": "Componentra \u2014 an enhanced React and TypeScript component library with reusable primitives, documentation, templates, and purposeful interactions.",
+  "author": "Devendra Dhote",
+  "license": "MIT",
+  "main": "dist-lib/componentra.umd.js",
+  "module": "dist-lib/componentra.es.js",
+  "types": "dist-lib/types/index.d.ts",
+  "files": [
+    "dist-lib"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist-lib/componentra.es.js",
+      "require": "./dist-lib/componentra.umd.js"
+    },
+    "./style.css": "./dist-lib/index.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:lib": "vite build --config vite.lib.config.ts && tsc -p tsconfig.lib.json --outDir dist-lib/types",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "@reduxjs/toolkit": "^2.9.2",
+    "@tailwindcss/vite": "^4.1.16",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "gsap": "^3.13.0",
+    "lucide-react": "^0.544.0",
+    "react-redux": "^9.2.0",
+    "react-router": "^7.9.5",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.7"
+  },
+  "contributors": [
+    "Aayush Mehta"
+  ]
+}

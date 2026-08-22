@@ -1,0 +1,47 @@
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
+import HomeLayout from "../layouts/HomeLayout";
+import ComponentLayout from "../layouts/ComponentLayout";
+import HomePage from "../pages/HomePage";
+import AboutPage from "../pages/AboutPage";
+import TemplatesPage from "../pages/TemplatesPage";
+import ComponentsOverview from "../pages/ComponentsOverview";
+import ButtonPage from "../pages/components/ButtonPage";
+import CardPage from "@/pages/components/CardPage";
+import ModalPage from "@/pages/components/ModalPage";
+import InputPage from "@/pages/components/InputPage";
+import NavbarPage from "@/pages/components/NavbarPage";
+import TooltipPage from "@/pages/components/TooltipPage";
+import CarouselPage from "@/pages/components/CarouselPage";
+import LayoutPage from "@/pages/components/LayoutPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "about", element: <AboutPage /> },
+      { path: "templates", element: <TemplatesPage /> },
+      {
+        path: "components",
+        element: <ComponentLayout />,
+        children: [
+          { index: true, element: <ComponentsOverview /> },
+          { path: "button", element: <ButtonPage /> },
+          { path: "card", element: <CardPage /> },
+          { path: "modal", element: <ModalPage /> },
+          { path: "input", element: <InputPage /> },
+          { path: "navbar", element: <NavbarPage /> },
+          { path: "carousel", element: <CarouselPage /> },
+          { path: "tooltip", element: <TooltipPage /> },
+          { path: "layout", element: <LayoutPage /> },
+        ],
+      },
+      { path: "*", element: <Navigate to="/" replace /> },
+    ],
+  },
+]);
+
+const AppRouter = () => <RouterProvider router={router} />;
+
+export default AppRouter;
