@@ -1,0 +1,66 @@
+{
+  "info": {
+    "name": "StockPilot API",
+    "description": "Authentication and Product CRUD assignment endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5001/api" },
+    { "key": "accessToken", "value": "" },
+    { "key": "productId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Aayush Mehta\",\n  \"email\": \"aayush@example.com\",\n  \"password\": \"StrongPass1\",\n  \"confirmPassword\": \"StrongPass1\"\n}" },
+            "url": "{{baseUrl}}/auth/register"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"aayush@example.com\",\n  \"password\": \"StrongPass1\"\n}" },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        },
+        { "name": "Refresh Token", "request": { "method": "POST", "url": "{{baseUrl}}/auth/refresh-token" } },
+        { "name": "Me", "request": { "method": "GET", "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }], "url": "{{baseUrl}}/auth/me" } },
+        { "name": "Logout", "request": { "method": "POST", "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }], "url": "{{baseUrl}}/auth/logout" } }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{accessToken}}" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Mechanical Keyboard\",\n  \"description\": \"A compact hot-swappable mechanical keyboard.\",\n  \"category\": \"Accessories\",\n  \"price\": 4999,\n  \"stock\": 20,\n  \"imageUrl\": \"\"\n}" },
+            "url": "{{baseUrl}}/products"
+          }
+        },
+        { "name": "List Products", "request": { "method": "GET", "url": "{{baseUrl}}/products?limit=12&page=1" } },
+        { "name": "Get Product", "request": { "method": "GET", "url": "{{baseUrl}}/products/{{productId}}" } },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{accessToken}}" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Mechanical Keyboard Pro\",\n  \"description\": \"An updated compact hot-swappable mechanical keyboard.\",\n  \"category\": \"Accessories\",\n  \"price\": 5499,\n  \"stock\": 18,\n  \"imageUrl\": \"\"\n}" },
+            "url": "{{baseUrl}}/products/{{productId}}"
+          }
+        },
+        { "name": "Delete Product", "request": { "method": "DELETE", "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }], "url": "{{baseUrl}}/products/{{productId}}" } }
+      ]
+    }
+  ]
+}
